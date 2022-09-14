@@ -54,8 +54,5 @@ public class Task5 {
     }
 
     System.out.printf("\nКол-во эллементов:%d\n", Array.size());
-    
-
-    System.out.printf("\n");
   }  
 }
