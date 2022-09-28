@@ -49,7 +49,6 @@ public class Task1 {
     
     System.out.printf("Do While Sum: %d\n", sum);
   }
-  
 
   //Мини бонус :)
   public static void HelloWorld () {
