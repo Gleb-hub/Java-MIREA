@@ -3,7 +3,7 @@ import java.util.Random;
 public class Task3 {
     public static void main(String[] args) {
 
-        final Random rg = new Random();
+        Random rg = new Random();
 
         int[] arr;
         arr = new int[4];
