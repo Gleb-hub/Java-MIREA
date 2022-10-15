@@ -1,29 +1,28 @@
-public class CircleTest{
+public class CircleTest {
     public static void main(String[] args) {
         Circle a = new Circle(0, 0, 10);
         Circle b = new Circle(1, 1, 10);
-        
+
         System.out.println("Circle a: " + a.toString());
         System.out.println("Circle b: " + b.toString());
-        System.out.println("Result of comparition of Circle a and Circle b: " + a.compareTo(b)); 
+        System.out.println("Result of comparition of Circle a and Circle b: " + a.compareTo(b));
 
         Point cCenter = new Point(1.234, 5.678);
         Circle c = new Circle(cCenter, 3);
 
         System.out.println("\nCircle c: " + c.toString());
         System.out.println("Circle perimetr: " + c.getPerimetr() + "\nCircle area:" + c.getArea());
-    } 
+    }
 }
 
-
-class Point{
+class Point {
     private double x;
     private double y;
 
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
-    } 
+    }
 
     public double getX() {
         return x;
@@ -43,15 +42,14 @@ class Point{
 
     @Override
     public String toString() {
-        return "Point{" + 
-            "x=" + x +
-            " y=" + y + 
-            "}";
+        return "Point{" +
+                "x=" + x +
+                " y=" + y +
+                "}";
     }
 }
 
-
-class Circle{
+class Circle {
     private Point p;
     private double r;
 
@@ -59,7 +57,7 @@ class Circle{
         this.p = p;
         this.r = r;
     }
-    
+
     public Circle(double x, double y, double r) {
         this.p = new Point(x, y);
         this.r = r;
@@ -86,7 +84,7 @@ class Circle{
         p.setY(y);
     }
 
-    public Point getP(){
+    public Point getP() {
         return p;
     }
 
@@ -101,7 +99,7 @@ class Circle{
     public void setR(double r) {
         this.r = r;
     }
-    
+
     public double getPerimetr() {
         return 2 * Math.PI * r;
     }
@@ -113,8 +111,7 @@ class Circle{
     public int compareTo(Circle b) {
         if (r > b.getR()) {
             return 1;
-        }
-        else if (r < b.getR()) {
+        } else if (r < b.getR()) {
             return -1;
         }
         return 0;
@@ -123,9 +120,8 @@ class Circle{
     @Override
     public String toString() {
         return "Circle{" +
-            p.toString() +
-            " r=" + r +
-            "}";
+                p.toString() +
+                " r=" + r +
+                "}";
     }
 }
-

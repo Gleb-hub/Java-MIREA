@@ -1,15 +1,14 @@
-public class TestAuthor{
+public class TestAuthor {
     public static void main(String[] args) {
         Author test = new Author("Gleb", "email@domain", 'M');
-        
+
         System.out.println(test.toString());
         test.setEmail("new_email@domain");
         System.out.println(test.toString());
     }
 }
 
-
-class Author{
+class Author {
     private String name;
     private String email;
     private char gender;
@@ -38,11 +37,10 @@ class Author{
 
     @Override
     public String toString() {
-        return "Author{" + 
-            "name=" + name + 
-            " email=" + email + 
-            " gender=" + gender + 
-            "}";
+        return "Author{" +
+                "name=" + name +
+                " email=" + email +
+                " gender=" + gender +
+                "}";
     }
 }
-
