@@ -1,4 +1,4 @@
-package categories;
+package tools.categories;
 
 public enum Categories {
     MEN,
