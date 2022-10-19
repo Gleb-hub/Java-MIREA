@@ -9,6 +9,10 @@ public class Good {
         this.cost = cost;
     }
 
+    public double getGood() {
+        return cost;
+    }
+
     @Override
     public String toString() {
         return name + ": " + cost + " rub";

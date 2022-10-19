@@ -19,6 +19,14 @@ public class Catalog {
         goods.add(new Good(name, cost));
     }
 
+    public int getGoodsSize() {
+        return goods.size();
+    }
+
+    public Good getGood(int index) {
+        return goods.get(index);
+    }
+
     @Override
     public String toString() {
         String res = name + "(" + cat + ")" + ":{";

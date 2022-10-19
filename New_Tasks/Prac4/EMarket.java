@@ -1,6 +1,7 @@
 import tools.categories.Categories;
 import tools.user.User;
 import tools.good.Good;
+import tools.cart.Cart;
 import tools.catalog.Catalog;
 import java.util.*;
 
@@ -28,5 +29,12 @@ public class EMarket {
         }
 
         System.out.println(catalogsAll);
+
+        Cart cart = new Cart(user.getLogin());
+        cart.addGood(catalogsAll.get(0).getGood(0));
+
+        System.out.println(cart);
+        System.out.println(cart.buy() + " rub");
+
     }
 }
