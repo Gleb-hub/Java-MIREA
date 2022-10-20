@@ -1,108 +1,186 @@
 
-public class Tester {
+public class Tester8 {
     public static void main(String[] args) {
-        Shape circle = new Circle(0, 10);
-        Shape rectangle = new Rectangle(3, 4, 5);
-        Shape square = new Square(10);
-
-        System.out.println(circle.getType() + " " + circle);
-        System.out.println(circle.getType() + " " + circle.getPerimetr());
-        System.out.println(circle.getType() + " " + circle.getArea());
-        
-        System.out.println(rectangle.getType() + " " + rectangle);
-        System.out.println(rectangle.getType() + " " + rectangle.getPerimetr());
-        System.out.println(rectangle.getType() + " " + rectangle.getArea());
-        
-        System.out.println(square.getType() + " " + square);
-        System.out.println(square.getType() + " " + square.getPerimetr());
-        System.out.println(square.getType() + " " + square.getArea());
     }
 }
 
 abstract class Shape {
-    abstract String getType();
-    abstract double getPerimetr();
-    abstract double getArea();
+    protected String color;
+    protected boolean filled;
+
+    public Shape() {
+        color = "white";
+        filled = false;
+    }
+
+    public Shape(String color, boolean filled) {
+        this.color = color;
+        this.filled = filled;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public boolean isFilled() {
+        return filled;
+    }
+
+    public void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
+    abstract public double getPerimetr();
+
+    abstract public double getArea();
+
+    abstract public String toString();
 }
 
 class Circle extends Shape {
-    private double center;
-    private double radius;
+    protected double radius;
 
-    public Circle(double center, double radius) {
-        this.center = center;
+    public Circle() {
+        super();
+        radius = 10;
+    }
+
+    public Circle(double radius) {
+        super();
         this.radius = radius;
     }
 
-    public String getType() {
-        return "Circle";
+    public Circle(double radius, String color, boolean filled) {
+        super(color, filled);
+        this.radius = radius;
     }
 
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    @Override
     public double getArea() {
         return Math.PI * radius * radius;
     }
 
+    @Override
     public double getPerimetr() {
         return 2 * Math.PI * radius;
     }
 
     @Override
     public String toString() {
-        return "(center: " + center + ",radius: " + radius + ")";
+        return "(color: " + color +
+                " filled: " + filled +
+                " radius: " + radius +
+                ")";
     }
 }
 
 class Rectangle extends Shape {
-    private double a;
-    private double b;
-    private double c;
+    protected double width;
+    protected double length;
 
-    public Rectangle(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public Rectangle() {
+        super();
+        this.width = 10;
+        this.length = 10;
     }
 
-    public String getType() {
-        return "Rectangle";
+    public Rectangle(double width, double length) {
+        super();
+        this.width = width;
+        this.length = length;
     }
 
+    public Rectangle(double width, double length, String color, boolean filled) {
+        super(color, filled);
+        this.width = width;
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    @Override
     public double getArea() {
-        double hp = getPerimetr() / 2.;
-        return Math.sqrt(hp * (hp - a) * (hp - b) * (hp - c));
+        return width * length;
     }
 
+    @Override
     public double getPerimetr() {
-        return a + b + c;
+        return (width + length) * 2;
     }
 
     @Override
     public String toString() {
-        return "(a: " + a + ",b: " + b + ",c: " + c + ")";
+        return "(color: " + color +
+                " filled: " + filled +
+                " width: " + width +
+                " length:" + length +
+                ")";
     }
 }
 
-class Square extends Shape {
-    private double a;
+class Square extends Rectangle {
 
-    public Square(double a) {
-        this.a = a;
+    public Square() {
+        super();
     }
 
-    public String getType() {
-        return "Square";
+    public Square(double side) {
+        super(side, side);
     }
 
-    public double getArea() {
-        return a * a;
+    public Square(double side, String color, String filled) {
+        super(color, filled, side, side);
     }
 
-    public double getPerimetr() {
-        return a * 4;
+    public double getSide() {
+        return super.getLength();
+    }
+
+    public void setSide(double side) {
+        super.setLength(side);
+        super.setWidth(side);
+    }
+
+    @Override
+    public void setWidth(double width) {
+        super.setWidth(width);
+    }
+
+    @Override
+    public void setLength(double length) {
+        super.setLength(length);
     }
 
     @Override
     public String toString() {
-        return "(a: " + a + ")";
+        return "(color:" + color +
+                " filled: " + filled +
+                " side: " + length;
     }
 }

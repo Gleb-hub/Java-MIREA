@@ -8,11 +8,11 @@ public class Tester {
         System.out.println(circle.getType() + " " + circle);
         System.out.println(circle.getType() + " " + circle.getPerimetr());
         System.out.println(circle.getType() + " " + circle.getArea());
-        
+
         System.out.println(rectangle.getType() + " " + rectangle);
         System.out.println(rectangle.getType() + " " + rectangle.getPerimetr());
         System.out.println(rectangle.getType() + " " + rectangle.getArea());
-        
+
         System.out.println(square.getType() + " " + square);
         System.out.println(square.getType() + " " + square.getPerimetr());
         System.out.println(square.getType() + " " + square.getArea());
@@ -21,7 +21,9 @@ public class Tester {
 
 abstract class Shape {
     abstract String getType();
+
     abstract double getPerimetr();
+
     abstract double getArea();
 }
 
