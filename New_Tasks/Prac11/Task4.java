@@ -16,5 +16,8 @@ public class Task4 {
 
         Date nDate = new Date(year, month, date, hours, minutes);
 
+        System.out.println(nDate);
+        System.out.println(cal);
+
     }
 }

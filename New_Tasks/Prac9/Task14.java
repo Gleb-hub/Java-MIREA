@@ -38,49 +38,56 @@ public class Task14 {
 }
 
 class MergeSort {
-    public List<Student> mergeArray(List<Student> arrayA, List<Student> arrayB) {
+    public ArrayList<Student> mergeSort(ArrayList<Student> ar) {
+        if (ar.size() <= 1)
+            return ar;
 
-        if (arrayA == null) {
-            return null;
-        }
-        if (arrayA.size() < 2) {
-            return arrayA;
-        }
+        ArrayList<Student> left, right;
+        left = new ArrayList<Student>();
+        right = new ArrayList<Student>();
 
-        List<Student> arrayC = new ArrayList<>(arrayA.size() + arrayB.size());
-        int positionA = 0, positionB = 0;
-
-        for (int i = 0; i < arrayC.size(); i++) {
-            if (positionA == arrayA.size()) {
-                arrayC.set(i, arrayB.get(i - positionB));
-                positionB++;
-            } else if (positionB == arrayB.size()) {
-                arrayC.set(i, arrayA.get(i - positionA));
-                positionA++;
-            } else if (arrayA.get(i - positionA).compareTo(arrayB.get(i - positionB)) < 0) {
-                arrayC.set(i, arrayA.get(i - positionA));
-                positionB++;
+        for (int i = 0; i < ar.size(); i++) {
+            if (i % 2 != 0) {
+                left.add(ar.get(i));
             } else {
-                arrayC.set(i, arrayB.get(i - positionB));
-                positionA++;
+                right.add(ar.get(i));
+
             }
         }
-        return arrayC;
+
+        left = mergeSort(left);
+        right = mergeSort(right);
+
+        return merge(left, right);
     }
 
-    public List<Student> mergeSort(List<Student> arrayA) {
+    private ArrayList<Student> merge(ArrayList<Student> left, ArrayList<Student> right) {
+        ArrayList<Student> ret = new ArrayList<Student>();
 
-        List<Student> arrayB = arrayA.subList(0, arrayA.size() / 2);
-        List<Student> arrayC = arrayA.subList(arrayA.size() / 2, arrayA.size());
+        while (!left.isEmpty() && !right.isEmpty()) {
+            if (left.get(0).getAge() <= right.get(0).getAge()) {
+                ret.add(left.get(0));
+                left.remove(0);
+            } else {
+                ret.add(right.get(0));
+                right.remove(0);
+            }
+        }
 
-        arrayB = mergeSort(arrayB);
-        arrayC = mergeSort(arrayC);
+        while (!left.isEmpty()) {
+            ret.add(left.get(0));
+            left.remove(0);
+        }
 
-        return mergeArray(arrayB, arrayC);
+        while (!right.isEmpty()) {
+            ret.add(right.get(0));
+            right.remove(0);
+        }
+        return ret;
     }
 
     public void sort() {
-        List<Student> students = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             students.add(new Student("Student" + i, i + 15, 15 - i, i + 30));
         }

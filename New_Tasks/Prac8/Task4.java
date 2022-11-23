@@ -6,7 +6,7 @@ public class Task4 {
         int k = 3;
         int i = (int) Math.pow(10, k - 1);
         int scount = 0;
-        System.out.println(recursion(k, 2, i, scount));
+        System.out.println(recursion(k, 27, i, scount));
     }
 
     public static int recursion(int k, int s, int i, int scount) {
