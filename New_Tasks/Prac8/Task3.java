@@ -2,8 +2,8 @@
 public class Task3 {
     public static void main(String[] args) {
 
-        int a = 1;
-        int b = 12;
+        int a = 12;
+        int b = 1;
 
         recursion(a, b);
     }
@@ -14,8 +14,8 @@ public class Task3 {
             System.out.println(a);
             return 1;
         } else if (a > b) {
-            System.out.println(b);
-            return recursion(a, b + 1);
+            System.out.println(a);
+            return recursion(a - 1, b);
         } else {
             System.out.println(a);
             return recursion(a + 1, b);
