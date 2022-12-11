@@ -40,7 +40,6 @@ public class Task3 {
         JButton b1 = new JButton("1");
         JButton b2 = new JButton("2");
 
-
         panel.add(b1);
         panel.add(b2);
         panel.setBounds(30, 5, 335, 50);

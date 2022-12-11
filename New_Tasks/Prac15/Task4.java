@@ -2,7 +2,7 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
- 
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -25,7 +25,6 @@ public class Task4 {
     }
 }
 
-
 class Calc extends JPanel {
     JTextField txt1 = null;
 
@@ -38,7 +37,7 @@ class Calc extends JPanel {
         try {
             setLayout(null);
             final TextField txt1 = new TextField();
-            txt1.setBounds(10, 10, 235, 25); 
+            txt1.setBounds(10, 10, 235, 25);
 
             JButton b0 = new JButton("0");
             b0.setBounds(10, 270, 75, 50);
@@ -119,8 +118,7 @@ class Calc extends JPanel {
                     txt1.setText(txt1.getText() + 0);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
@@ -132,112 +130,103 @@ class Calc extends JPanel {
                     txt1.setText(txt1.getText() + 1);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b2.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 2);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b3.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 3);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b4.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 4);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b5.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 5);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b6.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 6);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b7.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 7);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b8.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 8);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
             });
- 
+
             b9.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg1) {
                     txt1.setText(txt1.getText() + 9);
                     if (res == 0) {
                         res = Integer.valueOf(txt1.getText());
-                    } 
-                    else {
+                    } else {
                         res1 = Integer.valueOf(txt1.getText());
                     }
                 }
@@ -251,7 +240,6 @@ class Calc extends JPanel {
                     op = "+";
                 }
             });
- 
 
             bMinus.addActionListener(new ActionListener() {
                 @Override
@@ -286,19 +274,18 @@ class Calc extends JPanel {
                     int num1 = Integer.valueOf(res1);
                     String strOp = op;
                     MetodCalc mc = new MetodCalc();
-                    String strRes = String.valueOf(mc.calc(num, strOp, num1 ));
+                    String strRes = String.valueOf(mc.calc(num, strOp, num1));
                     txt1.setText(strRes);
                 }
             });
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog( null, "Error in Numbers","alert" , JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error in Numbers", "alert", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
 
 class MetodCalc {
-    public int calc ( int n1, String op, int n2) {
+    public int calc(int n1, String op, int n2) {
         int res = 0;
         switch (op) {
             case "+":
@@ -312,10 +299,9 @@ class MetodCalc {
                 break;
             case "/":
                 try {
-                res = n1 / n2;
-                }
-                catch (Exception e) {
-                    JOptionPane.showMessageDialog( null, "Error in Numbers","alert" , JOptionPane.ERROR_MESSAGE);
+                    res = n1 / n2;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Error in Numbers", "alert", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             default:
@@ -325,5 +311,3 @@ class MetodCalc {
         return res;
     }
 }
-
-
